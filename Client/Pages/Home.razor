@@ -1,0 +1,429 @@
+﻿@page "/"
+@using Client.Service
+@using Shared.DTO
+@using Client.Components;
+@inject UserApiService UserApi
+
+<PageTitle>Home</PageTitle>
+
+<div class="min-h-screen bg-white">
+    <!-- Navigation -->
+    <NavBar></NavBar>
+
+    <!-- Hero Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                    Unlocking Human Potential<br>
+                    <span class="text-gray-700">With Daily Prayers.</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Find Peace, Healing, and Growth Through Prayers
+                </p>
+                @*<div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                        Start
+                    </button>
+                    <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                        Work
+                    </button>
+                    <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                        Scale
+                    </button>
+                    <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                        Language Models
+                    </button>
+                    <button class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                        API
+                    </button>
+                </div>*@
+            </div>
+
+            <!-- Image Gallery -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+                <div class="aspect-square rounded-lg relative overflow-hidden">
+                    <img src="images/FamilyPrayer.jpg" class="object-cover w-full h-full" alt="Spiritual Restoration">
+                 
+                </div>
+                <div class="aspect-square rounded-lg relative overflow-hidden">
+                    <img src="images/Rosary.jpg" class="object-cover w-full h-full" alt="Digital Art">
+                   
+                </div>
+                <div class="aspect-square rounded-lg relative overflow-hidden">
+                    <img src="images/Healing.jpg" class="object-cover w-full h-full" alt="Portraits">
+                    
+                </div>
+                <div class="aspect-square rounded-lg relative overflow-hidden">
+                    <img src="images/confession.jpg" class="object-cover w-full h-full" alt="Characters">
+                     
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stable Diffusion Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">
+                        Explore Prayer by Theme
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Choose a theme that resonates with your current spiritual needs and embark on a guided prayer experience.
+                    </p>
+                    <button class="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                        Try for free
+                    </button>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+
+                    <div class="aspect-square rounded-lg overflow-hidden">
+                        <img src="images/Prayer1.jpg" class="object-cover w-full h-full" alt="Prayer Theme 1">
+                    </div>
+                    <div class="aspect-square rounded-lg overflow-hidden">
+                        <img src="images/Prayer2.jpg" class="object-cover w-full h-full" alt="Prayer Theme 2">
+                    </div>
+                    <div class="aspect-square rounded-lg overflow-hidden">
+                        <img src="images/Prayer3.jpg" class="object-cover w-full h-full" alt="Prayer Theme 3">
+                    </div>
+                    <div class="aspect-square rounded-lg overflow-hidden">
+                        <img src="images/Prayer4.jpg" class="object-cover w-full h-full" alt="Prayer Theme 4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Tools Section -->
+    @*<section class="py-16 px-4 sm:px-6 lg:px-8 bg-black text-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-4">
+                AI Tools Designed to Enhance and<br>
+                Simplify Your Creative Workflow.
+            </h2>
+            <p class="text-gray-300 mb-12 max-w-2xl">
+                Streamline your creative process with our suite of AI-powered tools designed for professionals and creators.
+            </p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Stable Assistant</h3>
+                    <p class="text-gray-300 mb-6">
+                        Your AI-powered creative companion. Get instant help with image generation, 
+                        editing suggestions, and creative guidance tailored to your projects.
+                    </p>
+                    <button class="bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                        Try for free
+                    </button>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-6">
+                    <div class="bg-white rounded-lg p-4 mb-4">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-8 h-8 bg-purple-500 rounded-full"></div>
+                            <span class="font-medium text-gray-900">AI Assistant</span>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            I can help you create stunning visuals. What kind of image would you like to generate today?
+                        </p>
+                    </div>
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <p class="text-gray-700 text-sm">
+                            Create a futuristic cityscape with flying cars and neon lights
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+
+    <!-- Pricing Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4">
+                Unlock the Power of Prayer
+            </h2>
+            <p class="text-xl text-gray-600 text-center mb-12">Choose the plan that's right for your spiritual journey</p>
+            <!-- Pro Plan Card -->
+            <div class="max-w-lg mx-auto mb-16 bg-white rounded-2xl shadow-2xl p-8 border border-gray-200 transform hover:scale-105 transition-transform duration-300">
+                <div class="text-center">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-2">Premium Access</h3>
+                    <p class="text-gray-600 mb-6">Experience the complete spiritual journey</p>
+                    <div class="inline-flex items-center justify-center gap-8 p-2 bg-gray-50 rounded-xl mb-4">
+                        <div class="text-center">
+                            <div class="text-sm font-medium text-gray-500 mb-1">Monthly</div>
+                            <div class="text-3xl font-bold text-gray-900">₹199</div>
+                            <div class="text-xs text-gray-500">per month</div>
+                        </div>
+                        <div class="text-center relative">
+                            <div class="absolute -top-4 right-0 bg-green-500 text-white text-xs px-2 py-1 rounded-full">Save 37%</div>
+                            <div class="text-sm font-medium text-gray-500 mb-1">Yearly</div>
+                            <div class="text-3xl font-bold text-gray-900">₹1,499</div>
+                            <div class="text-xs text-gray-500">per year</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="mt-8 space-y-4">
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="ml-3 text-gray-700">Full access to all prayer categories</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="ml-3 text-gray-700">Unlimited daily reminders</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="ml-3 text-gray-700">Audio playback for every prayer</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="ml-3 text-gray-700">Offline mode for entire library</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="ml-3 text-gray-700">Guided Rosary & Divine Mercy with visual steps</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="ml-3 text-gray-700">Family, Healing, Confession, Mass Prep prayers</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="ml-3 text-gray-700">Personal Prayer Journal & Intention Tracker</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="ml-3 text-gray-700">Multi-device sync with user profile</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="ml-3 text-gray-700">Ad-free experience</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="ml-3 text-gray-700">Custom font sizes & themes (light/dark mode)</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="ml-3 text-gray-700">Priority support and early access to new features</span>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <button class="w-full bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                        Get Pro Plan
+                    </button>
+                </div>
+            </div>
+
+        
+        </div>
+    </section>
+
+
+    <!-- Use Cases Section -->
+    @*<section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12">
+                Companies Use Our Advanced<br>
+                Technologies to Maximize Output,<br>
+                Operations, and Drive Significant<br>
+                Growth Across Industries.
+            </h2>
+            
+            <div class="space-y-12">
+                <!-- Use Case 1 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="aspect-video bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-semibold text-lg">Character Design</span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Jamie Thomson</h3>
+                        <p class="text-gray-600 mb-4">
+                            "Using the AI character generation tool has revolutionized our creative process. 
+                            We can now prototype character designs in minutes rather than hours, 
+                            allowing our team to explore more creative possibilities."
+                        </p>
+                        <div class="text-sm text-gray-500">Creative Director, Animation Studio</div>
+                    </div>
+                </div>
+
+                <!-- Use Case 2 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Guillaume Rivet</h3>
+                        <p class="text-gray-600 mb-4">
+                            "The API integration was seamless and the quality of generated content 
+                            exceeded our expectations. Our marketing campaigns now have a unique 
+                            visual identity that sets us apart from competitors."
+                        </p>
+                        <div class="text-sm text-gray-500">Marketing Lead, Tech Startup</div>
+                    </div>
+                    <div class="aspect-video bg-gradient-to-br from-purple-400 to-violet-500 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-semibold text-lg">Marketing Assets</span>
+                    </div>
+                </div>
+
+                <!-- Use Case 3 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="aspect-video bg-gradient-to-br from-blue-400 to-cyan-500 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-semibold text-lg">Product Visualization</span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Sarah Chen</h3>
+                        <p class="text-gray-600 mb-4">
+                            "The flexibility and power of the Stability AI platform has transformed 
+                            how we approach product visualization. We can now create photorealistic 
+                            renders that help our clients visualize products before manufacturing."
+                        </p>
+                        <div class="text-sm text-gray-500">Product Designer, E-commerce</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+
+    <!-- Final CTA Section -->
+    @*<section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">
+                        Build with a Stability AI.
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Start building with our powerful APIs and unlock the potential of generative AI for your applications.
+                    </p>
+                    <div class="flex space-x-4">
+                        <button class="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                            Get Started
+                        </button>
+                        <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                            View Docs
+                        </button>
+                    </div>
+                </div>
+                <div class="aspect-video bg-gradient-to-br from-indigo-400 to-purple-500 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-semibold text-lg">AI Development Platform</span>
+                </div>
+            </div>
+        </div>
+    </section>*@
+
+    <!-- Newsletter Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">
+                Stay Tuned.<br>
+                Subscribe to Updates.
+            </h2>
+            <p class="text-gray-600 mb-8">
+                Get the latest news, updates, and insights from our team.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="Your email address"  @bind="emailInput"  class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <button class="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors"  @onclick="LoadUser" disabled="@isLoading">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold mb-4">Amen</div>
+                    <p class="text-gray-400 text-sm">
+                        Unlocking Human Potential With Daily Prayers.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Products</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Stable Diffusion</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API Access</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Enterprise</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2025 Amen AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+@code {
+    private string emailInput = "";
+    private UserResponse? userResponse;
+    private bool isLoading = false;
+    private string? errorMessage;
+
+    private async Task LoadUser()
+    {
+        if (string.IsNullOrWhiteSpace(emailInput) ||
+            !System.Text.RegularExpressions.Regex.IsMatch(emailInput, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            return;
+
+        isLoading = true;
+        errorMessage = null;
+        userResponse = null;
+
+        try
+        {
+            userResponse = await UserApi.GetUserByEmailAsync(emailInput);
+            emailInput = userResponse.Name;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}
